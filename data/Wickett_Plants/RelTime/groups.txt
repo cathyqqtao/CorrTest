@@ -1,0 +1,4 @@
+Monomastix_opisthostigma=outgroup
+Pyramimonas_parkeae=outgroup
+Nephroselmis_pyriformis=outgroup
+Uronema_sp=outgroup

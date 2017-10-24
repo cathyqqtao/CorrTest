@@ -1,0 +1,4 @@
+Yeast=outgroup
+Pombe=outgroup
+Neurospora=outgroup
+Gibberella=outgroup

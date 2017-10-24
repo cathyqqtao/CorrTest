@@ -1,0 +1,1 @@
+Lipomyces_starkeyi=outgroup

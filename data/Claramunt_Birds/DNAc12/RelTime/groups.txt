@@ -1,0 +1,7 @@
+Struthio_camelus=outgroup
+Rhea_americana=outgroup
+Tinamus_guttatus=outgroup
+Nothoprocta=outgroup
+Dromaius_novaehollandiae=outgroup
+Casuarius_casuarius=outgroup
+Apteryx_australis=outgroup

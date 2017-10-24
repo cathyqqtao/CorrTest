@@ -1,0 +1,4 @@
+Chloroflexus_auranticus_J-10=outgroup
+Heliobacterium_modesticaldum_Ice1=outgroup
+Rhodobacter_sphaeroides_2.4.1=outgroup
+Chlorobium_tepidum_TLS=outgroup

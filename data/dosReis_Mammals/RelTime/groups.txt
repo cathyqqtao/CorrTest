@@ -1,0 +1,3 @@
+Ornithorhynchus_anatinus=outgroup
+Zaglossus_bruijni=outgroup
+Tachyglossus_aculeatus=outgroup
