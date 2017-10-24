@@ -3,6 +3,19 @@ phylo.CorrTest runs as a function in R.
 ***This function requires 3 arguments: a branch length tree, a timetree and outgroup(s). Thus, users need to estimate branch lengthsusing their favorite methods (ML, NJ, Mp, etc.) and software (MEGA, RAxML, etc.) before run phylo.CorrTest. Timetree should be estiamted using RelTime method that implemented in MEGA with the same topology as used the branch length tree and without any calibration. This program calculates relative rates using the given branch lengths and times. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
 
 
+***To intall phylo.CorrTest, please follow the steps:
+	# If your are using R studio:
+	  1. Download CorrTest folder from GitHub and save it to user specified location
+	  2. In R studio, go to "File" --> "Open Project in New Session"
+	  3. Find the location that contains the CorrTest folder and open CorrTest.Rproj 
+	  4. You should be able to see CorrTest in your packages
+	  5. type library("CorrTest") in Console 
+	
+	# If your are using R:
+	  1. Download CorrTest folder from GitHub and save it to user specified location
+
+
+
 ***To run phylo.CorrTest, please install the CorrTest package and follow the steps:
 
 	setwd('example')
