@@ -1,0 +1,11 @@
+Package: CorrTest
+Type: Package
+Title: Test the hypothesis of no-correlation of evolutionary rates in a phylogeny 
+Version: 0.1.0
+Author: person("Qiqing", "Tao", email = "qiqing.tao@temple.edu", role = c("aut", "cre"))
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Test the hypothesis of no-correlation of evolutionary rates in a phylogeny.
+Depends: R (>= 3.3.2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
