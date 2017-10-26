@@ -30,8 +30,8 @@ To intall CorrTest package, please follow the steps:
 1. Download CorrTest folder from GitHub and save it to user specified location
 2. In R studio, go to "File" --> "Open Project in New Session"
 3. Find the location that contains the CorrTest folder and open CorrTest.Rproj 
-4. You should be able to see CorrTest in your packages
-5. type library("CorrTest") in Console to activate the package
+4. You should be able to see CorrTest in your packages list
+5. type `library("CorrTest")` in Console to activate the package
 	
  * If your are using R:
 1. Download CorrTest folder from GitHub and save it to user specified location
