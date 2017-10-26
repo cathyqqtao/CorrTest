@@ -34,7 +34,7 @@ To intall CorrTest package, please follow the steps:
 5. type library("CorrTest") in Console to activate the package
 	
  * If your are using R:
-	1. Download CorrTest folder from GitHub and save it to user specified location
+1. Download CorrTest folder from GitHub and save it to user specified location
 
 
 To run phylo.CorrTest, please install the CorrTest package follow above steps first and then follow the following steps:
@@ -71,7 +71,9 @@ Citation
 Tao et al.
 
 If you use CorrTest from MEGA software (MEGA7-GUI). Please also cite:
+
 Sudhir Kumar, Glen Stecher, and Koisgiro Tamura. MEGA7: Molecular Evolutionary Genetics Analysis version 7.0 for bigger datasets. Molecular Biology and Evolution(2016). 33(7):1870-1874.
 
 If you use CorrTest from MEGA software (MEGA7-CC). Please also cite:
+
 Sudhir Kumar, Glen Stecher, Daniel Peterson, and Koisgiro Tamura. MEGA-CC: computing core of molecular evolutionary genetics analysis program for automated and iterative data analysis. Bioinformatics(2012). 28(20):2685-2686.
