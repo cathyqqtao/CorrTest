@@ -25,14 +25,15 @@ This program requires 4 external packages: ape, phangorn, stats and R.utils. Ins
 
 	
 To intall CorrTest package, please follow the steps:
-  *If your are using R studio:
+
+If your are using R studio:
 	1. Download CorrTest folder from GitHub and save it to user specified location
 	2. In R studio, go to "File" --> "Open Project in New Session"
 	3. Find the location that contains the CorrTest folder and open CorrTest.Rproj 
 	4. You should be able to see CorrTest in your packages
 	5. type library("CorrTest") in Console to activate the package
 	
-  *If your are using R:
+ If your are using R:
 	1. Download CorrTest folder from GitHub and save it to user specified location
 
 
