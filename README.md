@@ -10,11 +10,11 @@ CorrTest contains 1 R fuction: `rate.CorrTest`
 
 This function requires 3 arguments: a branch length tree, outgroup specificaion, and output file name. 
 
-	`brlen_tree` is an object of class "phylo" specifying the branch lengths
+  `brlen_tree` is an object of class "phylo" specifying the branch lengths
 	
-	`outgroup` is a vector of character specifying all outgroup tips
+  `outgroup` is a vector of character specifying all outgroup tips
 	
-	`outputFile` is a character string naming the output file that contains the CorrTest score and p-value
+  `outputFile` is a character string naming the output file that contains the CorrTest score and p-value
 	
 
 Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run rate.CorrTest. This program calculates rates using the relative rates fromework (RRF, Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
