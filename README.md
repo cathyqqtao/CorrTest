@@ -8,7 +8,7 @@ Introduction
 
 CorrTest contains 1 R fuction: `rate.CorrTest` 
 
-This function requires 3 arguments: a branch length tree, outgroup specificaion, and output file name. 
+`rate.CorrTest(brlen_tree, outgroup, outputFile)` requires 3 arguments:  
 
   `brlen_tree` is an object of class "phylo" specifying the branch lengths
 	
