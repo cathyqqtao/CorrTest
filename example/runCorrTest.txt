@@ -1,7 +1,7 @@
-## change working directory to the folder that contains data (branch length tree and RelTime timetree)
+## change working directory to the folder that contains data (the branch length tree and the outgroup file)
 setwd('CorrTest//example')
 
-## read outgroups
+## read outgroups ##
 outgroups = read.table('groups.txt')
 out.tip = character()
 
@@ -11,10 +11,9 @@ for (i in 1:length(outgroups[,1])){
 }
 
 
-## read branch length tree and timetree
+## read branch length tree and timetree ##
 t.ml = read.tree('dosReis_Mammals274_ML.nwk')
 
-t.rt = read.tree('dosReis_Mammals274_RelTime_oneCali_relTimes.nwk')
 
-## run CorrTest
-phylo.CorrTest(t.ml, t.rt, out.tip)
+## run CorrTest ##
+rate.CorrTest(t.ml, out.tip, 'CorrTest.txt')
