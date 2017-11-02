@@ -6,12 +6,16 @@ CorrTest tests the hypothesis of molecular rate independency in a phylogeny.
 Introduction
 ============
 
-CorrTest contains 1 R fuction: rate.CorrTest. 
+CorrTest contains 1 R fuction: `rate.CorrTest` 
 
 This function requires 3 arguments: a branch length tree, outgroup specificaion, and output file name. 
+
 	`brlen_tree` is an object of class "phylo" specifying the branch lengths
+	
 	`outgroup` is a vector of character specifying all outgroup tips
+	
 	`outputFile` is a character string naming the output file that contains the CorrTest score and p-value
+	
 
 Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run rate.CorrTest. This program calculates rates using the relative rates fromework (RRF, Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
 
@@ -25,7 +29,7 @@ Directory Structure
 
 'example' directory contains an example data and an example code to run rate.CorrTest.
 
-'data' directory contains all empirical data, CorrTest results and Bayesian results. 
+'data' directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. 
 
 'Figure' derectory contains data and code for generating figures in Tao et al. 
 
@@ -33,11 +37,11 @@ Directory Structure
 Getting Started
 ---------------
 
-To intall `rate.CorrTest` on your loal machine, please follow the steps:
+To intall `rate.CorrTest` on your local machine, please follow the steps:
 
 1. Download `rate.CorrTest` from code directory.
 2. In R, type `setwd(<yout folder location>)` to change the working directory to be the folder that contains `rate.CorrTest` function. 
-2. Type `import("rate.CorrTest")` in Console to activate the funciton.
+2. Type `import("rate.CorrTest")` to activate the funciton.
 	
 
 `rate.CorrTest` requires 4 external packages: ape, phangorn, stats and R.utils. Install them in advance before using the program. To do so, type the following command inside the R session and follow the instructions to complete the installation: 
@@ -57,7 +61,7 @@ To run `rate.CorrTest`, please install the program follow above steps first and 
 	phylo.CorrTest(t.ml, out.tip, 'CorrTest.txt')
 
 
-Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use programs/ softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps.  
+Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps.  
 	
 	setwd('example')
 
@@ -79,7 +83,7 @@ Note that users need to provide a tree with branch lengths as the input for `rat
 
 	
 	
-This program only allows binary trees.
+Currently, `rate.CorrTest` only allows binary trees.
 
 If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@temple.edu).
 
