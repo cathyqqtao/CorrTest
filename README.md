@@ -1,69 +1,88 @@
 CorrTest
 ==============
 
-CorrTest tests the variation pattern (independent or autocorrelated) of molecular rates in a phylogeny. 
+CorrTest tests the hypothesis of molecular rate independency in a phylogeny. 
 
 Introduction
 ============
 
-CorrTest contains 1 R fuction: phylo.CorrTest. 
+CorrTest contains 1 R fuction: rate.CorrTest. 
 
-This function requires 3 arguments: a branch length tree, a timetree and outgroup(s). Thus, users need to estimate branch lengthsusing their favorite methods (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run phylo.CorrTest. Timetree should be estiamted using RelTime method that implemented in MEGA with the same topology as used the branch length tree and without any calibration. This program calculates relative rates using the given branch lengths and times. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
+This function requires 3 arguments: a branch length tree, outgroup specificaion, and output file name. 
+	`brlen_tree` is an object of class "phylo" specifying the branch lengths
+	`outgroup` is a vector of character specifying all outgroup tips
+	`outputFile` is a character string naming the output file that contains the CorrTest score and p-value
 
-Noted that this function has been implemented in MEGA version 7.0.25(?). You can download the software from http://www.megasoftware.net/. More information about how to use CorrTest in MEGA can be found in (insert a help page).
+Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run rate.CorrTest. This program calculates rates using the relative rates fromework (RRF, Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
+
+Noted that this function has also been implemented in MEGA version 7.0.25(?). You can download the software from http://www.megasoftware.net/. More information about how to use CorrTest in MEGA can be found in (insert a help page).
+
+
+Directory Structure
+------------------- 
+
+'code' directory contains rate.CorrTest R function.
+
+'example' directory contains an example data and an example code to run rate.CorrTest.
+
+'data' directory contains all empirical data, CorrTest results and Bayesian results. 
+
+'Figure' derectory contains data and code for generating figures in Tao et al. 
 
 
 Getting Started
 ---------------
 
-This program requires 4 external packages: ape, phangorn, stats and R.utils. Install them in advance before installing CorrTest. To do so, type the following command inside the R session and follow the instructions to complete the installation: 
+To intall `rate.CorrTest` on your loal machine, please follow the steps:
+
+1. Download `rate.CorrTest` from code directory.
+2. In R, type `setwd(<yout folder location>)` to change the working directory to be the folder that contains `rate.CorrTest` function. 
+2. Type `import("rate.CorrTest")` in Console to activate the funciton.
+	
+
+`rate.CorrTest` requires 4 external packages: ape, phangorn, stats and R.utils. Install them in advance before using the program. To do so, type the following command inside the R session and follow the instructions to complete the installation: 
 
 	install.packages('ape')
 	install.packages('phangorn')
 	install.packages('stats')
 	install.packages('R.utils')
 
-	
-To intall CorrTest package, please follow the steps:
 
-* If your are using R studio:
-1. Download CorrTest folder from GitHub and save it to user specified location
-2. In R studio, go to "File" --> "Open Project in New Session"
-3. Find the location that contains the CorrTest folder and open CorrTest.Rproj 
-4. You should be able to see CorrTest in your packages list
-5. type `library("CorrTest")` in Console to activate the package
-	
- * If your are using R:
-1. Download CorrTest folder from GitHub and save it to user specified location
-
-
-To run phylo.CorrTest, please install the CorrTest package follow above steps first and then follow the following steps:
+To run `rate.CorrTest`, please install the program follow above steps first and then follow the following steps:
 
 	setwd('example')
-	brlen_tree = read.tree('dosReis_Mammals274_ML.nwk')
-	timetree = read.tree('dosReis_Mammals274_RelTime_oneCali_relTimes.nwk')
+	t.ml = read.tree('dosReis_Mammals274_ML.nwk')
 	out.tip = c('Ornithorhynchus_anatinus', 'Zaglossus_bruijni', 'Tachyglossus_aculeatus')
 	
-	phylo.CorrTest(brlen_tree, timetree, out.tip)
+	phylo.CorrTest(t.ml, out.tip, 'CorrTest.txt')
 
 
-You can type ?phylo.CorrTest() for more information. 
+Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use programs/ softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps.  
+	
+	setwd('example')
 
+	dm = dist.ml(data, model='HKY')
+	
+	## To get a UPGMA tree ##
+	treeUPGMA = upgma(dm)
+	
+	## To get a Neighbor-Joining tree ##
+	treeNJ = NJ(dm)
+	
+	## To get a maximum likelihood tree ##
+	fit = pml(treeNJ, data)
+	fit = optim.pml(fit, model='HKY', rearrangements="NNI")
+	bs = bootstrap.pml(fit, bs=100, control = pml.control(trace=0))
+	
+	## export the tree ##
+	write.tree(bs, file="bootstrap_example.tre")
+
+	
+	
 This program only allows binary trees.
-
-This program only takes trees that contain the same species. Please make sure the taxa names are the same in the branch length tree and timetree before you run the program. 
 
 If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@temple.edu).
 
-
-Directory Structure
-------------------- 
-
-'CorrTest' directory contains all files that you need to install CorrTest package in R.
-
-'example' directory contains an example data and an example code to run phylo.CorrTest.
-
-'data' directory contains all empirical data, RelTime results, and Bayesian results that used in Tao et al. (2018?). 
 
 
 Citation
