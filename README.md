@@ -17,10 +17,9 @@ CorrTest contains 1 R fuction: `rate.CorrTest`
   `outputFile` is a character string naming the output file that contains the CorrTest score and p-value
 	
 
-Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run rate.CorrTest. This program calculates rates using the relative rates fromework (RRF, Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
+Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run `rate.CorrTest`. This program calculates rates using the relative rates fromework (RRF, Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
 
-Noted that this function has also been implemented in MEGA version 7.0.25(?). You can download the software from http://www.megasoftware.net/. More information about how to use CorrTest in MEGA can be found in (insert a help page).
-
+Noted that this function has also been implemented in MEGA version 7.1.1. You can download the software from http://www.megasoftware.net/.
 
 Directory Structure
 ------------------- 
