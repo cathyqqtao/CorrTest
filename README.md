@@ -41,7 +41,7 @@ To intall `rate.CorrTest` on your local machine, please follow the steps:
 
 1. Download `rate.CorrTest` from code directory.
 2. In R, type `setwd(<yout folder location>)` to change the working directory to be the folder that contains `rate.CorrTest` function. 
-2. Type `import("rate.CorrTest")` to activate the funciton.
+2. Type `source("rate.CorrTest.R")` to activate the funciton.
 	
 
 `rate.CorrTest` requires 4 external packages: ape, phangorn, stats and R.utils. Install them in advance before using the program. To do so, type the following command inside the R session and follow the instructions to complete the installation: 
@@ -58,30 +58,25 @@ To run `rate.CorrTest`, please install the program follow above steps first and 
 	t.ml = read.tree('dosReis_Mammals274_ML.nwk')
 	out.tip = c('Ornithorhynchus_anatinus', 'Zaglossus_bruijni', 'Tachyglossus_aculeatus')
 	
-	phylo.CorrTest(t.ml, out.tip, 'CorrTest.txt')
+	rate.CorrTest(t.ml, out.tip, 'CorrTest.txt')
 
 
-Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps.  
+Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps. If you have more questions about how to esitmate branch lengths tree, please refer to 'phangorn' manual. 
 	
 	setwd('example')
 
-	dm = dist.ml(data, model='HKY')
+	seq = read.phyDat('dosReis274_complete.fas', format='fasta', type='DNA')
+	dm = dist.ml(data=seq, model='JC69')
 	
-	## To get a UPGMA tree ##
-	treeUPGMA = upgma(dm)
-	
-	## To get a Neighbor-Joining tree ##
+	## Estimate topogy and branch lengths together
 	treeNJ = NJ(dm)
-	
-	## To get a maximum likelihood tree ##
-	fit = pml(treeNJ, data)
+	fit = pml(treeNJ, data=seq)
 	fit = optim.pml(fit, model='HKY', rearrangements="NNI")
 	bs = bootstrap.pml(fit, bs=100, control = pml.control(trace=0))
 	
-	## export the tree ##
+	## export the tree 
 	write.tree(bs, file="bootstrap_example.tre")
 
-	
 	
 Currently, `rate.CorrTest` only allows binary trees.
 
