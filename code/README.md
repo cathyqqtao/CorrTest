@@ -29,6 +29,15 @@ Currently, this function only allows binary trees.
 Noted that this function has also been implemented in MEGA version 7.1.1. You can download the software from http://www.megasoftware.net/.
 
 
+Examples
+--------
+	setwd("example")
+	t.ml = read.tree("dosReis_Mammals274_ML.nwk")
+	out.tip = c("Ornithorhynchus_anatinus", "Zaglossus_bruijni", "Tachyglossus_aculeatus")
+	
+	rate.CorrTest(t.ml, out.tip, "CorrTest.txt")
+
+
 Reference
 ---------
 Tao et al.
