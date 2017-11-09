@@ -11,11 +11,11 @@ Usage
 
 Arguments
 ---------
-**brlen_tree** is an object of class "phylo" specifying the branch lengths
+**brlen_tree** is an object of class "phylo" specifying the branch lengths.
 	
-**outgroup** is	a vector of character specifying all outgroup tips
+**outgroup** is	a vector of character specifying all outgroup tips.
 	
-**outputFile** is a character string naming the output file that contains the CorrTest score and p-value
+**outputFile** is a character string naming the output file that contains the CorrTest score and p-value.
 	
 	
 Details
