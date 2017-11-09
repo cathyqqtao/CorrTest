@@ -24,9 +24,9 @@ Noted that this function has also been implemented in MEGA version 7.1.1. You ca
 Directory Structure
 ------------------- 
 
-'code' directory contains rate.CorrTest R function.
+'code' directory contains `rate.CorrTest` R function.
 
-'example' directory contains an example data and an example code to run rate.CorrTest.
+'example' directory contains an example data and an example code to run `rate.CorrTest`.
 
 'data' directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. 
 
