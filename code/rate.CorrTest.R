@@ -43,8 +43,8 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
   #### get raw relative rates ####
   t = brlen_tree
 
-  t = ape::root(t, out.tip, resolve.root = TRUE)
-  t = drop.tip(t, out.tip)
+  t = ape::root(t, outgroup, resolve.root = TRUE)
+  t = drop.tip(t, outgroup)
 
   t.dist = ape::cophenetic.phylo(t)
   brlen = t$edge.length
@@ -179,6 +179,11 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
 
     }
   }
+
+  RRF.mat[is.na(RRF.mat[,10]), 10] = 0
+  RRF.mat[is.infinite(RRF.mat[,10]), 10] = 0
+  RRF.mat[is.na(RRF.mat[,11]), 11] = 0
+  RRF.mat[is.infinite(RRF.mat[,11]), 11] = 0
 
   #### adjust relative rates by multiplying ancestral rate ####
   for (nd in (tips.num+1):(tips.num+t$Nnode)){ ## from root to shallowest internal nodes
@@ -412,7 +417,6 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
 
   out = c(rho_s, rho_ad_all[1], rho_ad_1_decay, rho_ad_2_decay)
   names(out) = c('rho_s', 'rho_ad', 'rho_ad_1_decay', 'rho_ad_2_decay')
-
 
   ########################################################################
   ############################ for CorrTest  #############################
