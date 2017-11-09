@@ -65,19 +65,18 @@ Note that users need to provide a tree with branch lengths as the input for `rat
 	setwd("example")
 	seq = read.phyDat("dosReis274_complete.fas", format="fasta", type="DNA")
 		
-	* To estimate branch lengths based on a fixed topology
+	## NOT RUN: To estimate branch lengths based on a fixed topology
 	topo = read.tree("dosReis_Mammals274_topology.nwk") 
 	topo = acctran(topo, seq)
 	fit.fix = pml(topo, data=seq, model="HKY", k=4)
 	fit.fix = optim.pml(fit.fix, optNni = FALSE, optEdge = TRUE, rearrangements = "none")
 	
-	* To estimate topogy and branch lengths together
+	## NOT RUN: To estimate topogy and branch lengths together
 	dm = dist.ml(seq)
 	treeNJ = NJ(dm)
 	fit.relax = pml(treeNJ, data=seq, model="HKY", k=4)
 	fit.relax = optim.pml(fit.relax, optNni = TRUE, optEdge = TRUE, rearrangements = "NNI")
-	
-	
+		
 	## NOT RUN: export the tree 
 	write.tree(fit.fix$tree, file="treeML_fix_topology.nwk")
 	write.tree(fit.relax$tree, file="treeML.nwk")
