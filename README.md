@@ -17,20 +17,20 @@ CorrTest contains 1 R fuction: `rate.CorrTest`
   `outputFile` is a character string naming the output file that contains the CorrTest score and p-value
 	
 
-Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run `rate.CorrTest`. This program calculates rates using the relative rates fromework (RRF, Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
+Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run `rate.CorrTest`. This program calculates rates using the relative rates fromework (Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
 
 Noted that this function has also been implemented in MEGA version 7.1.1. You can download the software from http://www.megasoftware.net/.
 
 Directory Structure
 ------------------- 
 
-'code' directory contains `rate.CorrTest` R function.
+"code" directory contains `rate.CorrTest` R function.
 
-'example' directory contains an example data and an example code to run `rate.CorrTest`.
+"example" directory contains an example data and an example code to run `rate.CorrTest`.
 
-'data' directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. 
+"data" directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. 
 
-'Figure' derectory contains data and code for generating figures in Tao et al. 
+"Figure" derectory contains data and code for generating figures in Tao et al. 
 
 
 Getting Started
@@ -45,36 +45,42 @@ To intall `rate.CorrTest` on your local machine, please follow the steps:
 
 `rate.CorrTest` requires 4 external packages: ape, phangorn, stats and R.utils. Install them in advance before using the program. To do so, type the following command inside the R session and follow the instructions to complete the installation: 
 
-	install.packages('ape')
-	install.packages('phangorn')
-	install.packages('stats')
-	install.packages('R.utils')
+	install.packages("ape")
+	install.packages("phangorn")
+	install.packages("stats")
+	install.packages("R.utils")
 
 
 To run `rate.CorrTest`, please install the program follow above steps first and then follow the following steps:
 
-	setwd('example')
-	t.ml = read.tree('dosReis_Mammals274_ML.nwk')
-	out.tip = c('Ornithorhynchus_anatinus', 'Zaglossus_bruijni', 'Tachyglossus_aculeatus')
+	setwd("example")
+	t.ml = read.tree("dosReis_Mammals274_ML.nwk")
+	out.tip = c("Ornithorhynchus_anatinus", "Zaglossus_bruijni", "Tachyglossus_aculeatus")
 	
-	rate.CorrTest(t.ml, out.tip, 'CorrTest.txt')
+	rate.CorrTest(t.ml, out.tip, "CorrTest.txt")
 
 
-Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps. If you have more questions about how to esitmate branch lengths tree, please refer to 'phangorn' manual. 
+Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps. If you have more questions about how to esitmate branch lengths, please refer to "phangorn" manual (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf). 
 	
-	setwd('example')
-
-	seq = read.phyDat('dosReis274_complete.fas', format='fasta', type='DNA')
-	dm = dist.ml(data=seq, model='JC69')
+	setwd("example")
+	seq = read.phyDat("dosReis274_complete.fas", format="fasta", type="DNA")
+		
+	* To estimate branch lengths based on a fixed topology
+	topo = read.tree("dosReis_Mammals274_topology.nwk") 
+	topo = acctran(topo, seq)
+	fit.fix = pml(topo, data=seq, model="HKY", k=4)
+	fit.fix = optim.pml(fit.fix, optNni = FALSE, optEdge = TRUE, rearrangements = "none")
 	
-	## Estimate topogy and branch lengths together
+	* To estimate topogy and branch lengths together
+	dm = dist.ml(seq)
 	treeNJ = NJ(dm)
-	fit = pml(treeNJ, data=seq)
-	fit = optim.pml(fit, model='HKY', rearrangements="NNI")
-	bs = bootstrap.pml(fit, bs=100, control = pml.control(trace=0))
+	fit.relax = pml(treeNJ, data=seq, model="HKY", k=4)
+	fit.relax = optim.pml(fit.relax, optNni = TRUE, optEdge = TRUE, rearrangements = "NNI")
 	
-	## export the tree 
-	write.tree(bs, file="bootstrap_example.tre")
+	
+	## NOT RUN: export the tree 
+	write.tree(fit.fix$tree, file="treeML_fix_topology.nwk")
+	write.tree(fit.relax$tree, file="treeML.nwk")
 
 	
 Currently, `rate.CorrTest` only allows binary trees.
