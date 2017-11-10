@@ -1,7 +1,7 @@
 CorrTest
 ==============
 
-CorrTest tests the hypothesis of molecular rate independency in a phylogeny. 
+CorrTest tests the hypothesis of independence of evolutionary rates among lineages in a phylogeny.
 
 Introduction
 ============
@@ -17,9 +17,9 @@ CorrTest contains 1 R fuction: `rate.CorrTest`
   `outputFile` is a character string naming the output file that contains the CorrTest score and p-value
 	
 
-Users need to estimate branch lengths using their favorite method (ML, NJ, MP, etc.) and software (MEGA, RAxML, etc.) before run `rate.CorrTest`. This program calculates rates under the relative rates fromework (Tamura, et al. 2017) using the given branch length tree. Outgroups will automatically removed because the assumption of equal rates of evolution between the ingroup and outgroup sequences is not testable. 
+Users need to provide an evolutionary tree with branch lengths in order to run `rate.CorrTest`. To get a tree with branch lengths, we suggest that you use existing software (e.g., RAxML or MEGA) or functions in `phangorn` (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf).  (See below for examples usage.)
 
-Note that this function has also been implemented in MEGA version 7.1.1. You can download the software from http://www.megasoftware.net/.
+The program will produce the probability that the null hypothesis of rate independency among lineages is rejected, as well as the associated prediction score. When the rate independence is rejected by CorrTest, then autocorrelation parameter can be estimated by using one of the Bayesian analysis software (e.g., MCMCTree).
 
 Directory Structure
 ------------------- 
@@ -60,7 +60,7 @@ To run `rate.CorrTest`, please install the program follow above steps and then f
 	rate.CorrTest(t.ml, out.tip, "CorrTest.txt")
 
 
-Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn` as following steps. If you have more questions about how to esitmate branch lengths, please refer to "phangorn" manual (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf). 
+Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing software, such as RAxML and MEGA, or use the existing functions in `phangorn` using the following steps. If you have more questions about how to estimate branch lengths, please refer to "phangorn" manual (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf). 
 	
 	setwd("example")
 	seq = read.phyDat("dosReis274_complete.fas", format="fasta", type="DNA")
@@ -90,12 +90,4 @@ If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@tem
 
 Citation
 ============
-Tao et al.
-
-If you use CorrTest from MEGA software (MEGA7-GUI). Please also cite:
-
-Sudhir Kumar, Glen Stecher, and Koisgiro Tamura. MEGA7: Molecular Evolutionary Genetics Analysis version 7.0 for bigger datasets. Molecular Biology and Evolution(2016). 33(7):1870-1874.
-
-If you use CorrTest from MEGA software (MEGA7-CC). Please also cite:
-
-Sudhir Kumar, Glen Stecher, Daniel Peterson, and Koisgiro Tamura. MEGA-CC: computing core of molecular evolutionary genetics analysis program for automated and iterative data analysis. Bioinformatics(2012). 28(20):2685-2686.
+Tao et al. (2017). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).

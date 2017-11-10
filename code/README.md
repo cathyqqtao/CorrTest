@@ -1,7 +1,7 @@
 rate.CorrTest
 ==============
 
-This function tests the hypothesis of molecular rate independency in a phylogeny. 
+This function tests the null hypothesis of the independence of evolutionary rates among branches (lineages) in a phylogeny. 
 
 
 Usage
@@ -24,9 +24,7 @@ This function requires 4 external packages: ape, phangorn, stats and R.utils. Pl
 
 Users need to provide a tree with branch lengths as the input for this function. To get the branch length tree, one can use existing softwares, such as RAxML and MEGA, or use the existing functions in `phangorn`. Please refer to "phangorn" manual (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf) for more information. 
 
-Currently, this function only allows binary trees.
-
-Noted that this function has also been implemented in MEGA version 7.1.1. You can download the software from http://www.megasoftware.net/.
+Currently, this function only allows binary trees. To use it with multifurcating trees, convert each polytomy into a series of bifurcations and set the length of the newly created branches to be 0.
 
 
 Examples
@@ -40,6 +38,4 @@ Examples
 
 Reference
 ---------
-Tao et al.
-
-Tamura et al.
+Tao et al. (2017). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).
