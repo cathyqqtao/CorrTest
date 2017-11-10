@@ -19,7 +19,7 @@ CorrTest contains 1 R fuction: `rate.CorrTest`
 
 Users need to provide an evolutionary tree with branch lengths in order to run `rate.CorrTest`. To get a tree with branch lengths, we suggest that you use existing software (e.g., RAxML or MEGA) or functions in `phangorn` (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf).  (See below for examples usage.)
 
-The program will produce the probability that the null hypothesis of rate independency among lineages is rejected, as well as the associated prediction score. When the rate independence is rejected by CorrTest, then autocorrelation parameter can be estimated by using one of the Bayesian analysis software (e.g., MCMCTree).
+This program will produce the probability that the null hypothesis of rate independency among lineages is rejected, as well as the associated prediction score. When the rate independence is rejected by CorrTest, then autocorrelation parameter can be estimated by using one of the Bayesian analysis software (e.g., MCMCTree).
 
 Directory Structure
 ------------------- 
@@ -28,9 +28,9 @@ Directory Structure
 
 "example" directory contains an example data and an example code to run `rate.CorrTest`.
 
-"data" directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. 
+"data" directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. (2017). 
 
-"Figure" derectory contains data and code for generating figures in Tao et al. 
+"Figure" derectory contains data and code for generating figures in Tao et al. (2017). 
 
 
 Getting Started
@@ -39,7 +39,7 @@ Getting Started
 To intall `rate.CorrTest` on your local machine, please follow the steps:
 
 1. Download `rate.CorrTest` from code directory.
-2. In R, type `setwd(<yout folder location>)` to change the working directory to be the folder that contains `rate.CorrTest` function. 
+2. In R session, type `setwd(<yout folder location>)` to change the working directory to be the folder that contains `rate.CorrTest` function. 
 2. Type `source("rate.CorrTest.R")` to activate the funciton.
 	
 
@@ -82,7 +82,7 @@ Note that users need to provide a tree with branch lengths as the input for `rat
 	write.tree(fit.relax$tree, file="treeML.nwk")
 
 	
-Currently, `rate.CorrTest` only allows binary trees.
+Currently, `rate.CorrTest` only allows binary trees. To use it with multifurcating trees, convert each polytomy into a series of bifurcations and set the length of the newly created branches to be 0.
 
 If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@temple.edu).
 
