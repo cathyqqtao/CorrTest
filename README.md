@@ -28,9 +28,9 @@ Directory Structure
 
 "example" directory contains an example data and an example code to run `rate.CorrTest`.
 
-"data" directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. (2017). 
+"data" directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. (2018). 
 
-"Figure" derectory contains data and code for generating figures in Tao et al. (2017). 
+"Figure" derectory contains data and code for generating figures in Tao et al. (2018). 
 
 
 Getting Started
@@ -90,4 +90,4 @@ If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@tem
 
 Citation
 ============
-Tao et al. (2017). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).
+Tao et al. (2018). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted to PNAS).
