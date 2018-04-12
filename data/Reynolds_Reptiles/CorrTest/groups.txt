@@ -1,2 +1,0 @@
-Acrochordus_granulatus=outgroup
-Typhlops_jamaicensis=outgroup
