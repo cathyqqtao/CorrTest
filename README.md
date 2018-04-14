@@ -90,4 +90,4 @@ If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@tem
 
 Citation
 ============
-Tao et al. (2018). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted to PNAS).
+Tao et al. (2018). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).

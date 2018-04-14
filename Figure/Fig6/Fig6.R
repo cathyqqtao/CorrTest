@@ -1,7 +1,20 @@
 library(xlsx)
 library(vioplot)
 
-d = read.xlsx('Fig3.xlsx', sheetName = 'Fig_3c')
+## Fig. 6a
+d = read.xlsx('Fig6.xlsx',sheetName = 'v')
+v = d$true_v
+v.mc2t = d$MC2T_v
+
+plot(v, v.mc2t, xlim=c(0,0.4), ylim=c(0,0.5), pch=18, cex=0.6, xaxs = "i", yaxs = "i", axes=FALSE, main='', xlab='', ylab='')
+abline(0, 1.09, lwd=2, col='gray')
+axis(1, cex.axis=1.3)
+axis(2, cex.axis=1.3)
+title(ylab='inferred v')
+title(xlab='true v')
+
+## Fig. 6b
+d = read.xlsx('Fig6.xlsx', sheetName = 'taxonSampling')
 
 ar.400 = d$AR_400taxa
 ar.300 = d$AR_300taxa
