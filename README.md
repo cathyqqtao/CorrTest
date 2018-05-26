@@ -8,7 +8,7 @@ Introduction
 
 CorrTest contains one R fuction: `rate.CorrTest` 
 
-`rate.CorrTest(brlen_tree, outgroup, sister.resample = 0, outputFile`
+`rate.CorrTest(brlen_tree, outgroup, sister.resample = 0, outputFile)`
 
   `brlen_tree` is an object of class "phylo" specifying the branch lengths
 	

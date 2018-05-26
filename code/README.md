@@ -6,7 +6,7 @@ This function tests the null hypothesis of the independence of evolutionary rate
 
 Usage
 -----
-`rate.CorrTest(brlen_tree, outgroup, sister.resample = 0, outputFile`
+`rate.CorrTest(brlen_tree, outgroup, sister.resample = 0, outputFile)`
 
 
 Arguments
