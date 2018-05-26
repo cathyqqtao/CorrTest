@@ -1,18 +1,20 @@
 CorrTest
 ==============
 
-CorrTest tests the hypothesis of independence of evolutionary rates among lineages in a phylogeny.
+CorrTest tests the hypothesis of independence of evolutionary rates among branches in a phylogeny.
 
 Introduction
 ============
 
-CorrTest contains 1 R fuction: `rate.CorrTest` 
+CorrTest contains one R fuction: `rate.CorrTest` 
 
-`rate.CorrTest(brlen_tree, outgroup, outputFile)` requires 3 arguments:  
+`rate.CorrTest(brlen_tree, outgroup, sister.resample = 0, outputFile`
 
   `brlen_tree` is an object of class "phylo" specifying the branch lengths
 	
   `outgroup` is a vector of character specifying all outgroup tips
+  
+  `sister.resample` is	the number of sister resamplings. The default value is 0. 
 	
   `outputFile` is a character string naming the output file that contains the CorrTest score and p-value
 	
@@ -57,7 +59,7 @@ To run `rate.CorrTest`, please install the program follow above steps and then f
 	t.ml = read.tree("dosReis_Mammals274_ML.nwk")
 	out.tip = c("Ornithorhynchus_anatinus", "Zaglossus_bruijni", "Tachyglossus_aculeatus")
 	
-	rate.CorrTest(t.ml, out.tip, "CorrTest.txt")
+	rate.CorrTest(brlen_tree = t.ml, outgroup = out.tip, sister.resample = 0, outputFile = "CorrTest.txt")
 
 
 Note that users need to provide a tree with branch lengths as the input for `rate.CorrTest`. To get the branch length tree, one can use existing software, such as RAxML and MEGA, or use the existing functions in `phangorn` using the following steps. If you have more questions about how to estimate branch lengths, please refer to "phangorn" manual (https://cran.r-project.org/web/packages/phangorn/phangorn.pdf). 

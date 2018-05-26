@@ -4,7 +4,7 @@
 ## If you have any question, please check the GitHub link https://github.com/cathyqqtao/CorrTest, or email to cathyqqtao@gmail.com.
 
 
-rate.CorrTest = function(brlen_tree, outgroup, outputFile){
+rate.CorrTest = function(brlen_tree, outgroup, sister.resample = 0, outputFile){
 
   ################# check required packages ##############
   if (!library('ape',logical.return = TRUE)){
@@ -247,9 +247,9 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
     }
   }
 
-  #### format RRF rate ####
+  #### format raw RRF rates (perpare for feature extraction) ####
   nodeID = c(RRF.mat[,2], RRF.mat[,3], tips.num+1)  ## all nodes + root
-  RRF.rates = c(RRF.mat[,12], RRF.mat[,13], 1)  ### all rates + root rate=1
+  RRF.rates = c(RRF.mat[,'r5.adjust'], RRF.mat[,'r6.adjust'], 1)  ### all rates + root rate=1
 
   d = data.frame(nodeID, RRF.rates)
   d = d[with(d, order(nodeID)), ]
@@ -257,6 +257,9 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
   Des2 = c(rep('-', tips.num), RRF.mat[,3])
 
   d = data.frame(d, Des1, Des2)
+
+  #### remove external rates ####
+  # d = d[-1:-tips.num,]
 
   ########################################################################
   ######################## get features for CorrTest  ####################
@@ -294,6 +297,23 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
   r2 = des2.rates[des1.rates!=0 & des2.rates!=0]
 
   rho_s = cor.test(r1, r2, alternative = "two.sided", method = 'spearman', conf.level=0.95, exact=FALSE)$estimate
+
+  #### resampling sister pairs for 50 times
+  if (sister.resample != 0){
+    pairs.num = length(r1)
+
+    rhos = numeric()
+    for (i in 1:sister.resample){
+      s = sample(c(1,2), pairs.num, replace = TRUE)
+      r1.s = c(r1[s==1], r2[s==2])
+      r2.s = c(r2[s==1], r1[s==2])
+      rho_s.s = cor.test(r1.s, r2.s, alternative = "two.sided", method = 'spearman', conf.level=0.95, exact=FALSE)$estimate
+      rhos = c(rhos, rho_s.s)
+    }
+
+    rho_s = mean(rhos)
+  }
+
 
   #### get ancestral-descendant correlation ####
 
@@ -452,5 +472,6 @@ rate.CorrTest = function(brlen_tree, outgroup, outputFile){
   }
 
 }
+
 
 

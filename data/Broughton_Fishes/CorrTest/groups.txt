@@ -1,2 +1,0 @@
-Callorhinchus_milii=outgroup
-Leucoraja_erinacea=outgroup

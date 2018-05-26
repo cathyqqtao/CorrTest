@@ -1,12 +1,12 @@
 rate.CorrTest
 ==============
 
-This function tests the null hypothesis of the independence of evolutionary rates among branches (lineages) in a phylogeny. 
+This function tests the null hypothesis of the independence of evolutionary rates among branches in a phylogeny. 
 
 
 Usage
 -----
-`rate.CorrTest(brlen_tree, outgroup, outputFile)`
+`rate.CorrTest(brlen_tree, outgroup, sister.resample = 0, outputFile`
 
 
 Arguments
@@ -14,6 +14,8 @@ Arguments
 **brlen_tree** is an object of class "phylo" specifying the branch lengths.
 	
 **outgroup** is	a vector of character specifying all outgroup tips.
+
+**sister.resample** is	the number of sister resamplings. The default value is 0. 
 	
 **outputFile** is a character string naming the output file that contains the CorrTest score and p-value.
 	
@@ -33,9 +35,9 @@ Examples
 	t.ml = read.tree("dosReis_Mammals274_ML.nwk")
 	out.tip = c("Ornithorhynchus_anatinus", "Zaglossus_bruijni", "Tachyglossus_aculeatus")
 	
-	rate.CorrTest(t.ml, out.tip, "CorrTest.txt")
+	rate.CorrTest(brlen_tree = t.ml, outgroup = out.tip, sister.resample = 0, outputFile = "CorrTest.txt")
 
 
 Reference
 ---------
-Tao et al. (2017). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).
+Tao et al. (2018). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).

@@ -16,4 +16,4 @@ t.ml = read.tree('dosReis_Mammals274_ML.nwk')
 
 
 ## run CorrTest ##
-rate.CorrTest(t.ml, out.tip, 'CorrTest.txt')
+rate.CorrTest(brlen_tree = t.ml, outgroup = out.tip, sister.resample = 0, outputFile = "CorrTest.txt")
