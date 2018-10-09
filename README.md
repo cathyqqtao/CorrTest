@@ -32,8 +32,6 @@ Directory Structure
 
 "data" directory contains all empirical data, CorrTest results and Bayesian results in Tao et al. (2018). 
 
-"Figure" derectory contains data and code for generating figures in Tao et al. (2018). 
-
 
 Getting Started
 ---------------
