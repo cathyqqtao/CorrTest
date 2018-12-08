@@ -1,0 +1,11 @@
+AB299369=outgroup
+KM610046=outgroup
+KM610045=outgroup
+FJ168563=outgroup
+KF479480=outgroup
+KT162002=outgroup
+KT162004=outgroup
+Ldubreuili=outgroup
+KT162003=outgroup
+Lfrin345_1=outgroup
+Ldanilew=outgroup
