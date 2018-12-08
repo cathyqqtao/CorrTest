@@ -44,4 +44,4 @@ If you use CorrTest from R, please cite:
 Tao et al. (2018). A new method for detecting autocorrelation of evolutionary rates in large phylogenies. (minor revision).
 
 If you use CorrTest from MEGA X, please also cite:
-Kumar S, Stecher G, Li M, Knyaz C, Tamura K. 2018. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol. Biol. Evol. 35:1547¨C1549.
+Kumar S, Stecher G, Li M, Knyaz C, Tamura K. 2018. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol. Biol. Evol. 35:1547-1549.
