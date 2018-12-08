@@ -23,6 +23,8 @@ Users need to provide an evolutionary tree with branch lengths in order to run `
 
 This program will produce the probability that the null hypothesis of rate independency among lineages is rejected, as well as the associated prediction score. When the rate independence is rejected by CorrTest, then autocorrelation parameter can be estimated by using one of the Bayesian analysis software (e.g., MCMCTree).
 
+Note that this program has also been implemented in MEGA X (https://www.megasoftware.net).  
+
 Directory Structure
 ------------------- 
 
@@ -90,4 +92,8 @@ If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@tem
 
 Citation
 ============
-Tao et al. (2018). Pervasive correlation of molecular evolutionary rates in the tree of life (submitted).
+If you use CorrTest from R, please cite:
+Tao et al. (2018). A new method for detecting autocorrelation of evolutionary rates in large phylogenies. (minor revision).
+
+If you use CorrTest from MEGA X, please also cite:
+Kumar S, Stecher G, Li M, Knyaz C, Tamura K. 2018. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol. Biol. Evol. 35:1547¨C1549.
