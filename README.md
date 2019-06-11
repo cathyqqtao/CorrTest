@@ -93,7 +93,7 @@ If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@tem
 Citation
 ============
 If you use CorrTest from R, please cite:
-Tao Q, Tamura K, Battistuzzi F, and Kumar S. 2019. A new method for detecting autocorrelation of evolutionary rates in large phylogenies. Mol. Biol. Evol. msz014.
+Tao Q, Tamura K, Battistuzzi F, and Kumar S. 2019. A machine learning method for detecting autocorrelation of evolutionary rates in large phylogenies. Mol. Biol. Evol. 36(4):811-824.
 
 If you use CorrTest from MEGA X, please also cite:
 Kumar S, Stecher G, Li M, Knyaz C, and Tamura K. 2018. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol. Biol. Evol. 35:1547-1549.
